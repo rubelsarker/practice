@@ -16,6 +16,7 @@
                     <li class="list-group-item">Image upload,show and image related work using intervation package</li>
                     <li class="list-group-item">Create dummy data for book model using seed and factory</li>
                     <li class="list-group-item">curd operation in tag</li>
+                    <li class="list-group-item">default auth laravel 6 and mail configureation env file </li>
                 </ul>
             </div>
         </div>

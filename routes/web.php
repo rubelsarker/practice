@@ -25,3 +25,5 @@ Route::resource('tag','TagController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/change-password', 'Auth\ChangePasswordController@create')->name('change.password');
+Route::post('/change-password', 'Auth\ChangePasswordController@update')->name('change.update');
