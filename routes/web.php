@@ -17,3 +17,4 @@ Route::get('/', function () {
 Route::get('image','ImageController@create')->name('image.create');
 Route::post('image','ImageController@store')->name('image.store');
 Route::get('show-image','ImageController@index')->name('image.index');
+Route::resource('tag','TagController');
