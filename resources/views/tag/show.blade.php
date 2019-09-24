@@ -18,9 +18,14 @@
                                <p class="text-white"><strong>Slug :</strong> {{$tag->slug}}</p>
                                <p class="text-white"><strong>Created At :</strong> {{$tag->created_at->diffForHumans()}}</p>
                                <p class="text-white"><strong>Updated At :</strong> {{$tag->updated_at->toDateString()}}</p>
-                                <a onclick="event.preventDefault();
+                                <a onclick="if(confirm('Are you sure, you want to delete this ?')){
+                                        event.preventDefault();
                                         document.getElementById('form-delete-{{$tag->id}}').submit();
-                                        "class="btn btn-danger btn-lg rounded-0">Delete</a>
+                                        }
+                                        else {
+                                        event.preventDefault();
+                                        }
+                                        "class="btn btn-danger btn-lg rounded-0" href="">Delete</a>
                                 <form id="form-delete-{{$tag->id}}" action="{{route('tag.destroy',$tag->id)}}" method="post" style="display: none;">
                                     @csrf
                                     @method('DELETE')

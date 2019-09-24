@@ -28,9 +28,17 @@
                                 <td class="text-center">
                                     <a href="{{route('tag.show',$tag->id)}}" class="btn btn-primary rounded-0"><i class="far fa-eye"></i></a>
                                     <a href="{{route('tag.edit',$tag->id)}}" class="btn btn-info rounded-0"><i class="far fa-edit"></i></a>
-                                    <a onclick="event.preventDefault();
-                                    document.getElementById('form-delete-{{$tag->id}}').submit();
-                                        " href="" class="btn btn-danger rounded-0"><i class="far fa-trash-alt"></i></a>
+                                    {{--<a onclick="event.preventDefault();document.getElementById('form-delete-{{$tag->id}}').submit();"--}}
+                                       {{--href="" class="btn btn-danger rounded-0"><i class="far fa-trash-alt"></i></a>--}}
+                                    <a onclick="if(confirm('Are you sure, you want to delete this ?')){
+                                            event.preventDefault();
+                                            document.getElementById('form-delete-{{$tag->id}}').submit();
+                                            }
+                                            else {
+                                                event.preventDefault();
+                                            }
+                                            "
+                                        href="" class="btn btn-danger rounded-0"><i class="far fa-trash-alt"></i></a>
                                     <form id="form-delete-{{$tag->id}}" action="{{route('tag.destroy',$tag->id)}}" method="post" style="display: none;">
                                         @csrf
                                         @method('DELETE')
@@ -42,17 +50,12 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-footer">
-
-                    </div>
                 </div>
 
             </div>
         </div>
     </div>
     <script>
-        $(".delete").on("submit", function(){
-            return confirm("Do you want to delete this item?");
-        });
+
     </script>
 @endsection
