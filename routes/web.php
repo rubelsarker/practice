@@ -22,8 +22,8 @@ Route::post('image','ImageController@store')->name('image.store');
 Route::get('show-image','ImageController@index')->name('image.index');
 Route::resource('tag','TagController');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::get('/change-password', 'Auth\ChangePasswordController@create')->name('change.password');
 Route::post('/change-password', 'Auth\ChangePasswordController@update')->name('change.update');
