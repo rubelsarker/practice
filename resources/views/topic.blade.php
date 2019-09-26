@@ -18,6 +18,7 @@
                     <li class="list-group-item">curd operation in tag</li>
                     <li class="list-group-item">default auth laravel 6 and mail configureation env file </li>
                     <li class="list-group-item">password change </li>
+                    <li class="list-group-item">email verification on user </li>
                 </ul>
             </div>
         </div>

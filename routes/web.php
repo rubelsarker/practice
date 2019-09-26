@@ -21,6 +21,10 @@ Route::get('image','ImageController@create')->name('image.create');
 Route::post('image','ImageController@store')->name('image.store');
 Route::get('show-image','ImageController@index')->name('image.index');
 Route::resource('tag','TagController');
+Route::resource('role','RolesController');
+Route::get('set-permission/{id}','RolesController@getPermission')->name('get.permission');
+Route::post('set-permission/{id}','RolesController@setPermission')->name('set.permission');
+Route::resource('permission','PermissionController');
 
 Auth::routes(['verify' => true]);
 
